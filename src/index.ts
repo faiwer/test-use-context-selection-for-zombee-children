@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { connect, ConnectedProps, Provider, useSelector } from 'react-redux';
 
@@ -12,7 +12,7 @@ const Item = React.memo(({ id }: { id: string }) => {
     return st.data[id].name;
   });
 
-  useEffect(() => () => console.log(`Unmount item id=${id}`), []);
+  useLayoutEffect(() => () => console.log(`Unmount item id=${id}`), []);
 
   return React.createElement('div', {}, `Name: ${name}`);
 });
